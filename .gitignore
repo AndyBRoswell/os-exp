@@ -33,3 +33,4 @@
 
 # dirs of generated files
 **/.vs/*
+**/x64/*
