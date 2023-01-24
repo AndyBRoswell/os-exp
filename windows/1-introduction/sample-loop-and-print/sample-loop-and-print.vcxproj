@@ -24,6 +24,7 @@
     <ProjectGuid>{8a251902-97fa-4722-8001-07523521eda2}</ProjectGuid>
     <RootNamespace>sampleloopandprint</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>1-1-sample-loop-and-print</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
