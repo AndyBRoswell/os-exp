@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		1-introduction\common.h = 1-introduction\common.h
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "access-memory", "1-introduction\access-memory\access-memory.vcxproj", "{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -27,6 +29,14 @@ Global
 		{8A251902-97FA-4722-8001-07523521EDA2}.Release|x64.Build.0 = Release|x64
 		{8A251902-97FA-4722-8001-07523521EDA2}.Release|x86.ActiveCfg = Release|Win32
 		{8A251902-97FA-4722-8001-07523521EDA2}.Release|x86.Build.0 = Release|Win32
+		{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}.Debug|x64.ActiveCfg = Debug|x64
+		{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}.Debug|x64.Build.0 = Debug|x64
+		{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}.Debug|x86.ActiveCfg = Debug|Win32
+		{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}.Debug|x86.Build.0 = Debug|Win32
+		{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}.Release|x64.ActiveCfg = Release|x64
+		{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}.Release|x64.Build.0 = Release|x64
+		{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}.Release|x86.ActiveCfg = Release|Win32
+		{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
