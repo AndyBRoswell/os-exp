@@ -34,3 +34,7 @@
 # dirs of generated files
 **/.vs/*
 **/x64/*
+
+# test files
+**/*.test
+**/*.tmp
