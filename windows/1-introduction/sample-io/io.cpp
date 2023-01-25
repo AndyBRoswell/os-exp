@@ -9,7 +9,7 @@ int main(int argc, char* argv[], char* envp[]) {
     if (f == INVALID_HANDLE_VALUE) exit(EXIT_FAILURE);
     const char content[] = "Hello World";
     DWORD bytes_written;
-    const BOOL ret = WriteFile(f, content, sizeof(content), &bytes_written, nullptr);
+    const BOOL ret = WriteFile(f, content, sizeof(content), &bytes_written, nullptr); // C library function fwrite(const void *, size_t, size_t, FILE*)) is more recommended
     if (ret != TRUE) exit(EXIT_FAILURE);
     CloseHandle(f);
     return EXIT_SUCCESS;
