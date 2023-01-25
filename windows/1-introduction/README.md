@@ -1,4 +1,5 @@
-Chapter: 2. Introduction to Operating Systems
+This directory corresponds to the chapter
+> 2. Introduction to Operating Systems
 
 | Source | Correspond(s) to |
 |-|-|
