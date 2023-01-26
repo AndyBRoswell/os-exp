@@ -19,6 +19,8 @@ std::wstring get_process_name(DWORD PID) {
     const HANDLE process_handle = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, PID);
     if (process_handle == nullptr) throw std::runtime_error("Failed to get process handle");
     constexpr DWORD lmax = 32767;
-    TCHAR process_name[lmax];
-    GetModuleFileNameEx(parent_process_handle, nullptr, process_name, lmax);
+    std::wstring process_name(lmax);
+    const DWORD l = GetModuleFileNameEx(parent_process_handle, nullptr, process_name.data(), lmax);
+    process_name.resize(l);
+    return process_name;
 }
