@@ -8,7 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{697434F2-CB38-415D-BDC2-C9C3F53959C6}"
 	ProjectSection(SolutionItems) = preProject
 		1-introduction\common.cpp = 1-introduction\common.cpp
+		2-process\common.cpp = 2-process\common.cpp
 		1-introduction\common.h = 1-introduction\common.h
+		2-process\common.h = 2-process\common.h
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1-2-access-memory", "1-introduction\access-memory\access-memory.vcxproj", "{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}"
