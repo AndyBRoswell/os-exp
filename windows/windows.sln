@@ -5,19 +5,19 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{697434F2-CB38-415D-BDC2-C9C3F53959C6}"
 	ProjectSection(SolutionItems) = preProject
-		2-introduction\common.cpp = 2-introduction\common.cpp
-		4-process\common.cpp = 4-process\common.cpp
-		2-introduction\common.h = 2-introduction\common.h
-		4-process\common.h = 4-process\common.h
+		2-Introduction\common.cpp = 2-Introduction\common.cpp
+		4-Processes\common.cpp = 4-Processes\common.cpp
+		2-Introduction\common.h = 2-Introduction\common.h
+		4-Processes\common.h = 4-Processes\common.h
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-2-access-memory", "2-introduction\access-memory\access-memory.vcxproj", "{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-2-access-memory", "2-Introduction\access-memory\access-memory.vcxproj", "{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-3-a-multi-threaded-program", "2-introduction\a-multi-threaded-program\a-multi-threaded-program.vcxproj", "{F727EB98-0C39-4772-BC3B-3CBA4A0264BF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-3-a-multi-threaded-program", "2-Introduction\a-multi-threaded-program\a-multi-threaded-program.vcxproj", "{F727EB98-0C39-4772-BC3B-3CBA4A0264BF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-4-sample-io", "2-introduction\sample-io\sample-io.vcxproj", "{45787E4E-321F-4E04-9871-0B3695230F00}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-4-sample-io", "2-Introduction\sample-io\sample-io.vcxproj", "{45787E4E-321F-4E04-9871-0B3695230F00}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-1-sample-loop-and-print", "2-introduction\sample-loop-and-print\sample-loop-and-print.vcxproj", "{8A251902-97FA-4722-8001-07523521EDA2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-1-sample-loop-and-print", "2-Introduction\sample-loop-and-print\sample-loop-and-print.vcxproj", "{8A251902-97FA-4722-8001-07523521EDA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
