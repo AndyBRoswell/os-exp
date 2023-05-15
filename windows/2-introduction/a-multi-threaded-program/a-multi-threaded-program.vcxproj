@@ -21,10 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{45787e4e-321f-4e04-9871-0b3695230f00}</ProjectGuid>
-    <RootNamespace>sampleio</RootNamespace>
+    <ProjectGuid>{f727eb98-0c39-4772-bc3b-3cba4a0264bf}</ProjectGuid>
+    <RootNamespace>amultithreadedprogram</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>1-4-sample-io</ProjectName>
+    <ProjectName>2-3-a-multi-threaded-program</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -130,7 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="io.cpp" />
+    <ClCompile Include="threads.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
