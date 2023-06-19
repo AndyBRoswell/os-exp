@@ -1,16 +1,22 @@
 #include <format>
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 #include <Windows.h>
 
 #include "../common.h"
 
 int main(int argc, char* argv[]) {
+    using namespace std::chrono_literals;
+
     constexpr size_t max_path_length = 32767;
+
+    std::this_thread::sleep_for(1s);
     std::cout << std::format("hello world {}", GetCurrentProcessId()) << std::endl;
     {
         std::wstring cwd(max_path_length, L'\0');
-        const DWORD l = GetCurrentDirectoryW(max_path_length, cwd.data());
+        const DWORD l = GetCurrentDirectory(max_path_length, cwd.data());
         cwd.resize(l);
         std::wcout << std::format(L"{:12}{}", L"cwd:", cwd) << std::endl;
     }
@@ -18,9 +24,9 @@ int main(int argc, char* argv[]) {
     {
         const DWORD l = GetModuleFileNameW(nullptr, executable_path_name.data() + 4, max_path_length);
         executable_path_name.resize(l + 4);
+        std::cout << std::format("{:12}{}", "argv[0]:", argv[0]) << std::endl;
+        std::wcout << std::format(L"{:12}{}", L"Executable:", executable_path_name) << std::endl;
     }
-    std::cout << std::format("{:12}{}", "argv[0]:", argv[0]) << std::endl;
-    std::wcout << std::format(L"{:12}{}", L"Executable:", executable_path_name) << std::endl;
 
     STARTUPINFO startup_info{ .cb = sizeof(startup_info) };
     PROCESS_INFORMATION process_info;
