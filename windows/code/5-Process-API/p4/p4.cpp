@@ -1,5 +1,6 @@
 #include <format>
 #include <iostream>
+#include <fstream>
 
 #include <Windows.h>
 
@@ -10,7 +11,7 @@ int main(int argc, char* argv[]) {
     std::cin.tie(nullptr);
     std::cout.tie(nullptr);
 
-    const DWORD PID = GetCurrentProcessId();
+    const int PID = _getpid();
     std::cout << std::format("hello world {}", PID) << std::endl;
     std::wstring executable_path_name; {
         if (std::string(argv[0]).starts_with(R"(\\?\)") == false) { executable_path_name = LR"(\\?\)"; }
@@ -36,6 +37,8 @@ int main(int argc, char* argv[]) {
     }
     else {
         std::cout << std::format("hello, I am child {}.", GetCurrentProcessId()) << std::endl;
+        std::ofstream out("p4.tmp");
+        std::cout.rdbuf(out.rdbuf());
         constexpr const char* const argv[] = { "powershell", "-c", "measure", "-in", __FILE__, nullptr };
         const intptr_t ret = _execvp(argv[0], argv);
         std::cout << "this shouldn't print out" << std::endl;

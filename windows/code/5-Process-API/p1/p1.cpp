@@ -8,6 +8,10 @@
 int main(int argc, char* argv[]) {
     constexpr size_t max_path_length = 32767;
 
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    std::cout.tie(nullptr);
+
     const DWORD PID = GetCurrentProcessId();
     std::cout << std::format("hello world {}", PID) << std::endl;
     {
