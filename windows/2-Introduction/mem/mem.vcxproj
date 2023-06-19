@@ -21,10 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f727eb98-0c39-4772-bc3b-3cba4a0264bf}</ProjectGuid>
-    <RootNamespace>amultithreadedprogram</RootNamespace>
+    <ProjectGuid>{3e882a6f-fe7b-4cf5-9e63-aa606d05b62f}</ProjectGuid>
+    <RootNamespace>accessmemory</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>2-3-a-multi-threaded-program</ProjectName>
+    <ProjectName>mem</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -130,7 +130,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="threads.cpp" />
+    <ClCompile Include="..\common.cpp" />
+    <ClCompile Include="mem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
