@@ -20,10 +20,13 @@ int main(int argc, char* argv[]) {
         cwd.resize(l);
         std::wcout << std::format(L"{:12}{}", L"cwd:", cwd) << std::endl;
     }
-    std::wstring executable_path_name(LR"(\\?\)", max_path_length);
+    std::wstring executable_path_name;
     {
-        const DWORD l = GetModuleFileNameW(nullptr, executable_path_name.data() + 4, max_path_length);
-        executable_path_name.resize(l + 4);
+        if (std::string(argv[0]).starts_with(R"(\\?\)") == false) { executable_path_name = LR"(\\?\)"; }
+        const size_t l0 = executable_path_name.size();
+        executable_path_name.resize(max_path_length);
+        const DWORD l = GetModuleFileNameW(nullptr, executable_path_name.data() + l0, max_path_length - l0);
+        executable_path_name.resize(l + l0);
         std::cout << std::format("{:12}{}", "argv[0]:", argv[0]) << std::endl;
         std::wcout << std::format(L"{:12}{}", L"Executable:", executable_path_name) << std::endl;
     }
@@ -38,5 +41,7 @@ int main(int argc, char* argv[]) {
     else {
         std::cout << std::format("CreateProcess failed: {}", GetLastError()) << std::endl;
     }
+    CloseHandle(process_info.hProcess);
+    CloseHandle(process_info.hThread);
     return 0;
 }
