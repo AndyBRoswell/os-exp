@@ -20,6 +20,7 @@ int main(int argc, char* argv[], char* envp[]) {
     loops = std::strtoull(argv[1], reinterpret_cast<char**>(argv[1]) + strlen(argv[1]), 10);
     DWORD thread_id[thread_count];
     HANDLE thread_handle[thread_count];
+    std::cout << "Initial value: " << counter << std::endl;
     for (size_t i = 0; i < thread_count; ++i) { thread_handle[i] = CreateThread(nullptr, 0, worker, nullptr, 0, &thread_id[i]); }
     for (size_t i = 0; i < thread_count; ++i) { WaitForSingleObject(thread_handle[i], INFINITE); }
     std::cout << "Final value: " << counter << std::endl;
