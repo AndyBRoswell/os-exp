@@ -31,10 +31,13 @@ int main(int argc, char* argv[]) {
     if (argc == 1) {
         const BOOL ret = CreateProcess(nullptr, (executable_path_name + std::format(L" {}", PID)).data(), nullptr, nullptr, FALSE, 0, nullptr, nullptr, &startup_info, &process_info);
         if (ret != 0) { std::cout << std::format("hello, I am parent of {}. Parent PID: {}.", process_info.dwProcessId, get_parent_PID()) << std::endl; }
-        else { std::cout << std::format("CreateProcess failed. Error code: {}.", GetLastError()) << std::endl; }
+        else {
+            std::cout << std::format("CreateProcess failed. Error code: {}.", GetLastError()) << std::endl;
+            return EXIT_FAILURE;
+        }
         CloseHandle(process_info.hProcess);
         CloseHandle(process_info.hThread);
     }
     else { std::cout << std::format("hello, I am child {}. Parent PID: {}", GetCurrentProcessId(), get_parent_PID()) << std::endl; }
-    return 0;
+    return EXIT_SUCCESS;
 }

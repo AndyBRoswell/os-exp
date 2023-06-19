@@ -30,6 +30,13 @@ int main(int argc, char* argv[]) {
         CloseHandle(process_info.hProcess);
         CloseHandle(process_info.hThread);
     }
-    else { std::cout << std::format("hello, I am child {}.", GetCurrentProcessId()) << std::endl; }
+    else {
+        std::cout << std::format("hello, I am child {}.", GetCurrentProcessId()) << std::endl;
+        constexpr const char* const argv[] = { "powershell", "-c", "measure", "-in", __FILE__, nullptr };
+        const intptr_t ret = _execvp(argv[0], argv);
+        std::cout << "this shouldn't print out" << std::endl;
+        std::cout << std::format("Return: {}. errno = {}.", ret, errno) << std::endl;
+        return EXIT_FAILURE;
+    }
     return EXIT_SUCCESS;
 }
