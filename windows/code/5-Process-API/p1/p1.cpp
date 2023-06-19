@@ -13,7 +13,8 @@ int main(int argc, char* argv[]) {
     constexpr size_t max_path_length = 32767;
 
     std::this_thread::sleep_for(1s);
-    std::cout << std::format("hello world {}", GetCurrentProcessId()) << std::endl;
+    const DWORD PID = GetCurrentProcessId();
+    std::cout << std::format("hello world {}", PID) << std::endl;
     {
         std::wstring cwd(max_path_length, L'\0');
         const DWORD l = GetCurrentDirectory(max_path_length, cwd.data());
@@ -33,15 +34,13 @@ int main(int argc, char* argv[]) {
 
     STARTUPINFO startup_info{ .cb = sizeof(startup_info) };
     PROCESS_INFORMATION process_info;
-    const BOOL ret = CreateProcess(executable_path_name.c_str(), nullptr, nullptr, nullptr, FALSE, 0, nullptr, nullptr, &startup_info, &process_info);
-    if (ret != 0) {
-        const DWORD PPID = get_parent_PID();
-        std::cout << std::format("Parent PID: {}", PPID) << std::endl;
+    if (argc == 1) {
+        const BOOL ret = CreateProcess(nullptr, (executable_path_name + std::format(L" {}", PID)).data(), nullptr, nullptr, FALSE, 0, nullptr, nullptr, &startup_info, &process_info);
+        if (ret != 0) { std::cout << std::format("hello, I am parent of {}. Parent PID: {}", process_info.dwProcessId, get_parent_PID()) << std::endl; }
+        else { std::cout << std::format("CreateProcess failed. Error code: {}", GetLastError()) << std::endl; }
+        CloseHandle(process_info.hProcess);
+        CloseHandle(process_info.hThread);
     }
-    else {
-        std::cout << std::format("CreateProcess failed: {}", GetLastError()) << std::endl;
-    }
-    CloseHandle(process_info.hProcess);
-    CloseHandle(process_info.hThread);
+    else { std::cout << std::format("hello, I am child {}. Parent PID: {}", GetCurrentProcessId(), get_parent_PID()) << std::endl; }
     return 0;
 }
