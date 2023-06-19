@@ -1,18 +1,13 @@
 #include <format>
 #include <iostream>
-#include <thread>
-#include <chrono>
 
 #include <Windows.h>
 
 #include "../common.h"
 
 int main(int argc, char* argv[]) {
-    using namespace std::chrono_literals;
-
     constexpr size_t max_path_length = 32767;
 
-    std::this_thread::sleep_for(1s);
     const DWORD PID = GetCurrentProcessId();
     std::cout << std::format("hello world {}", PID) << std::endl;
     {
