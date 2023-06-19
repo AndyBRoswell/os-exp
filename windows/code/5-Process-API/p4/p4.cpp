@@ -1,8 +1,11 @@
+#pragma warning(disable: 4996)
+
 #include <format>
 #include <iostream>
 #include <fstream>
 
 #include <Windows.h>
+#include <fcntl.h>
 
 int main(int argc, char* argv[]) {
     constexpr size_t max_path_length = 32767;
@@ -37,8 +40,16 @@ int main(int argc, char* argv[]) {
     }
     else {
         std::cout << std::format("hello, I am child {}.", GetCurrentProcessId()) << std::endl;
-        std::ofstream out("p4.tmp");
-        std::cout.rdbuf(out.rdbuf());
+        {
+            std::wstring cwd(max_path_length, L'\0');
+            const DWORD l = GetCurrentDirectory(max_path_length, cwd.data());
+            cwd.resize(l);
+            std::wcout << std::format(L"{:12}{}", L"cwd:", cwd) << std::endl;
+        }
+        if (_wopen(L"p4.tmp", _O_CREAT | _O_WRONLY | _O_TRUNC, _S_IREAD | _S_IWRITE | _S_IEXEC) == -1) {
+            std::cout << std::format("open failed. errno = {}.", errno) << std::endl;
+            return EXIT_FAILURE;
+        }
         constexpr const char* const argv[] = { "powershell", "-c", "measure", "-in", __FILE__, nullptr };
         const intptr_t ret = _execvp(argv[0], argv);
         std::cout << "this shouldn't print out" << std::endl;
