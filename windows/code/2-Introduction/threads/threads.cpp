@@ -14,7 +14,7 @@ DWORD WINAPI worker(void* arg) {
 
 int main(int argc, char* argv[], char* envp[]) {
     if (argc != 2) {
-        std::cerr << "usage\n./a-multi-threaded-program <value>" << std::endl;
+        std::cerr << "usage\n./threads <value>" << std::endl;
         exit(EXIT_FAILURE);
     }
     loops = std::strtoull(argv[1], reinterpret_cast<char**>(argv[1]) + strlen(argv[1]), 10);

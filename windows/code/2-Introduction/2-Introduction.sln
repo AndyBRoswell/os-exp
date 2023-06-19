@@ -5,17 +5,17 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{697434F2-CB38-415D-BDC2-C9C3F53959C6}"
 	ProjectSection(SolutionItems) = preProject
-		2-Introduction\common.cpp = 2-Introduction\common.cpp
-		2-Introduction\common.h = 2-Introduction\common.h
+		common.cpp = common.cpp
+		common.h = common.h
 	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpu", "cpu\cpu.vcxproj", "{8A251902-97FA-4722-8001-07523521EDA2}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mem", "mem\mem.vcxproj", "{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "threads", "threads\threads.vcxproj", "{F727EB98-0C39-4772-BC3B-3CBA4A0264BF}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "io", "io\io.vcxproj", "{45787E4E-321F-4E04-9871-0B3695230F00}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpu", "cpu\cpu.vcxproj", "{8A251902-97FA-4722-8001-07523521EDA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8A251902-97FA-4722-8001-07523521EDA2}.Debug|x64.ActiveCfg = Debug|x64
-		{8A251902-97FA-4722-8001-07523521EDA2}.Debug|x64.Build.0 = Debug|x64
-		{8A251902-97FA-4722-8001-07523521EDA2}.Debug|x86.ActiveCfg = Debug|Win32
-		{8A251902-97FA-4722-8001-07523521EDA2}.Debug|x86.Build.0 = Debug|Win32
-		{8A251902-97FA-4722-8001-07523521EDA2}.Release|x64.ActiveCfg = Release|x64
-		{8A251902-97FA-4722-8001-07523521EDA2}.Release|x64.Build.0 = Release|x64
-		{8A251902-97FA-4722-8001-07523521EDA2}.Release|x86.ActiveCfg = Release|Win32
-		{8A251902-97FA-4722-8001-07523521EDA2}.Release|x86.Build.0 = Release|Win32
 		{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}.Debug|x64.ActiveCfg = Debug|x64
 		{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}.Debug|x64.Build.0 = Debug|x64
 		{3E882A6F-FE7B-4CF5-9E63-AA606D05B62F}.Debug|x86.ActiveCfg = Debug|Win32
@@ -57,12 +49,17 @@ Global
 		{45787E4E-321F-4E04-9871-0B3695230F00}.Release|x64.Build.0 = Release|x64
 		{45787E4E-321F-4E04-9871-0B3695230F00}.Release|x86.ActiveCfg = Release|Win32
 		{45787E4E-321F-4E04-9871-0B3695230F00}.Release|x86.Build.0 = Release|Win32
+		{8A251902-97FA-4722-8001-07523521EDA2}.Debug|x64.ActiveCfg = Debug|x64
+		{8A251902-97FA-4722-8001-07523521EDA2}.Debug|x64.Build.0 = Debug|x64
+		{8A251902-97FA-4722-8001-07523521EDA2}.Debug|x86.ActiveCfg = Debug|Win32
+		{8A251902-97FA-4722-8001-07523521EDA2}.Debug|x86.Build.0 = Debug|Win32
+		{8A251902-97FA-4722-8001-07523521EDA2}.Release|x64.ActiveCfg = Release|x64
+		{8A251902-97FA-4722-8001-07523521EDA2}.Release|x64.Build.0 = Release|x64
+		{8A251902-97FA-4722-8001-07523521EDA2}.Release|x86.ActiveCfg = Release|Win32
+		{8A251902-97FA-4722-8001-07523521EDA2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{8A251902-97FA-4722-8001-07523521EDA2} = {697434F2-CB38-415D-BDC2-C9C3F53959C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66B8EF0E-EA15-4C4A-9684-87B9FDFF025E}
