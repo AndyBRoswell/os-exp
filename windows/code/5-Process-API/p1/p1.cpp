@@ -14,11 +14,10 @@ int main(int argc, char* argv[]) {
         cwd.resize(l);
         std::wcout << std::format(L"{:12}{}", L"cwd:", cwd) << std::endl;
     }
-    std::wstring executable_path_name = LR"(\\?\)";
+    std::wstring executable_path_name(LR"(\\?\)", max_path_length);
     {
-        executable_path_name.resize(max_path_length);
         const DWORD l = GetModuleFileNameW(nullptr, executable_path_name.data() + 4, max_path_length);
-        executable_path_name.resize(l);
+        executable_path_name.resize(l + 4);
     }
     std::cout << std::format("{:12}{}", "argv[0]:", argv[0]) << std::endl;
     std::wcout << std::format(L"{:12}{}", L"Executable:", executable_path_name) << std::endl;
