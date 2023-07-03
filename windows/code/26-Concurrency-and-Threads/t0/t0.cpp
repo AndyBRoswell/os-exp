@@ -16,8 +16,12 @@ int main(int argc, char* argv[]) {
     std::cout << "main: begin" << std::endl;
     t[0] = CreateThread(nullptr, 0, my_thread, const_cast<char*>("A"), 0, nullptr);
     t[1] = CreateThread(nullptr, 0, my_thread, const_cast<char*>("B"), 0, nullptr);
+    if (t[0] == nullptr || t[1] == nullptr) {
+        std::cerr << "CreateThread failed" << std::endl;
+        return EXIT_FAILURE;
+    }
     WaitForSingleObject(t[0], INFINITE);
     WaitForSingleObject(t[1], INFINITE);
     std::cout<< "main: end" << std::endl;
-    return 0;
+    return EXIT_SUCCESS;
 }
