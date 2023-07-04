@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "join_modular", "join_modula
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "join_no_state_var", "join_no_state_var\join_no_state_var.vcxproj", "{15424D85-C9BB-45A9-A754-B1EA31D85A4D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "join_no_lock", "join_no_lock\join_no_lock.vcxproj", "{1474E64C-BE50-437C-A87F-F397D4B146F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{15424D85-C9BB-45A9-A754-B1EA31D85A4D}.Release|x64.Build.0 = Release|x64
 		{15424D85-C9BB-45A9-A754-B1EA31D85A4D}.Release|x86.ActiveCfg = Release|Win32
 		{15424D85-C9BB-45A9-A754-B1EA31D85A4D}.Release|x86.Build.0 = Release|Win32
+		{1474E64C-BE50-437C-A87F-F397D4B146F6}.Debug|x64.ActiveCfg = Debug|x64
+		{1474E64C-BE50-437C-A87F-F397D4B146F6}.Debug|x64.Build.0 = Debug|x64
+		{1474E64C-BE50-437C-A87F-F397D4B146F6}.Debug|x86.ActiveCfg = Debug|Win32
+		{1474E64C-BE50-437C-A87F-F397D4B146F6}.Debug|x86.Build.0 = Debug|Win32
+		{1474E64C-BE50-437C-A87F-F397D4B146F6}.Release|x64.ActiveCfg = Release|x64
+		{1474E64C-BE50-437C-A87F-F397D4B146F6}.Release|x64.Build.0 = Release|x64
+		{1474E64C-BE50-437C-A87F-F397D4B146F6}.Release|x86.ActiveCfg = Release|Win32
+		{1474E64C-BE50-437C-A87F-F397D4B146F6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
