@@ -6,7 +6,7 @@ volatile bool done = false;
 
 DWORD child(const LPVOID const arg) {
     std::cout << "child" << std::endl;
-    Sleep(5);
+    Sleep(1);
     done = true;
     return EXIT_SUCCESS;
 }

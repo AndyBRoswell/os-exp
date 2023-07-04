@@ -7,6 +7,7 @@ CRITICAL_SECTION m;
 
 DWORD child(const LPVOID const arg) {
     std::cout << "child: begin" << std::endl;
+    Sleep(1);
     EnterCriticalSection(&m);
     std::cout << "child: signal" << std::endl;
     WakeConditionVariable(&c);
