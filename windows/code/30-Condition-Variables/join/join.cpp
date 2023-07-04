@@ -4,7 +4,7 @@
 #include <Windows.h>
 
 CONDITION_VARIABLE c;
-CRITICAL_SECTION m;
+CRITICAL_SECTION m; // similar to pthread_mutex_t
 bool done = false;
 
 DWORD child(const LPVOID const arg) {
