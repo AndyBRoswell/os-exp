@@ -20,10 +20,18 @@ size_t left(size_t p) { return p; }
 size_t right(size_t p) { return (p + 1) % 5; }
 
 void get_forks(size_t p) {
-    space(p); std::cout << std::format("{}: try {}", p, left(p)) << std::endl; space_end();
-    WaitForSingleObject(fork[left(p)], INFINITE);
-    space(p); std::cout << std::format("{}: try {}", p, right(p)) << std::endl; space_end();
-    WaitForSingleObject(fork[right(p)], INFINITE);
+    if (p == 4) {
+        space(p); std::cout << std::format("4: try {}", p, right(p)) << std::endl; space_end();
+        WaitForSingleObject(fork[right(p)], INFINITE);
+        space(p); std::cout << std::format("4: try {}", p, left(p)) << std::endl; space_end();
+        WaitForSingleObject(fork[left(p)], INFINITE);
+    }
+    else {
+        space(p); std::cout << std::format("{}: try {}", p, left(p)) << std::endl; space_end();
+        WaitForSingleObject(fork[left(p)], INFINITE);
+        space(p); std::cout << std::format("{}: try {}", p, right(p)) << std::endl; space_end();
+        WaitForSingleObject(fork[right(p)], INFINITE);
+    }
 }
 
 void put_forks(size_t p) {

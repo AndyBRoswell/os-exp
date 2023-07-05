@@ -6,24 +6,20 @@
 size_t loop_count;
 
 HANDLE fork[5];
-HANDLE const print_lock = CreateSemaphore(nullptr, 1, LONG_MAX, nullptr);
-
-void space(size_t s) {
-    WaitForSingleObject(print_lock, INFINITE);
-    for (size_t i = 0; i < 10 * s; ++i) { std::cout << " "; }
-}
-
-void space_end() { ReleaseSemaphore(print_lock, 1, nullptr); }
 
 size_t left(size_t p) { return p; }
 
 size_t right(size_t p) { return (p + 1) % 5; }
 
 void get_forks(size_t p) {
-    space(p); std::cout << std::format("{}: try {}", p, left(p)) << std::endl; space_end();
-    WaitForSingleObject(fork[left(p)], INFINITE);
-    space(p); std::cout << std::format("{}: try {}", p, right(p)) << std::endl; space_end();
-    WaitForSingleObject(fork[right(p)], INFINITE);
+    if (p == 4) {
+        WaitForSingleObject(fork[right(p)], INFINITE);
+        WaitForSingleObject(fork[left(p)], INFINITE);
+    }
+    else {
+        WaitForSingleObject(fork[left(p)], INFINITE);
+        WaitForSingleObject(fork[right(p)], INFINITE);
+    }
 }
 
 void put_forks(size_t p) {
@@ -37,15 +33,11 @@ void eat() { return; }
 
 DWORD WINAPI philosopher(void* arg) {
     const size_t p = reinterpret_cast<size_t>(arg);
-    space(p); std::cout << std::format("{}: start", p) << std::endl; space_end();
     for (size_t i = 0; i < loop_count; ++i) {
-        space(p); std::cout << std::format("{}: think", p) << std::endl; space_end();
         think();
         get_forks(p);
-        space(p); std::cout << std::format("{}: eat", p) << std::endl; space_end();
         eat();
         put_forks(p);
-        space(p); std::cout << std::format("{}: done", p) << std::endl; space_end();
     }
     return EXIT_SUCCESS;
 }
