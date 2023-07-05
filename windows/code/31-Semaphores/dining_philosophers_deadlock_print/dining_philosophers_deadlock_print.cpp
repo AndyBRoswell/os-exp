@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
     std::cout << "dining: started" << std::endl;
 
     for (size_t i = 0; i < 5; ++i) {
-        fork[i] = CreateSemaphore(nullptr, 1, 1, nullptr);
+        fork[i] = CreateSemaphore(nullptr, 1, LONG_MAX, nullptr);
         if (fork[i] == nullptr) { std::cerr << "CreateSemaphore failed" << std::endl; return EXIT_FAILURE; }
     }
 
