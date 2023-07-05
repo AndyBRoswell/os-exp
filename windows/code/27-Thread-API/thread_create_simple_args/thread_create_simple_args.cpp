@@ -24,5 +24,6 @@ int main(int argc, char* argv[]) {
     DWORD ret;
     GetExitCodeThread(hThread, &ret);
     std::cout<<std::format("returned {}\n", ret);
+    CloseHandle(hThread);
     return EXIT_SUCCESS;
 }

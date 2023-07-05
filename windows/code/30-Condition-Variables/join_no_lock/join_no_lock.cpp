@@ -32,5 +32,6 @@ int main(int argc, char* argv[]) {
     }
     LeaveCriticalSection(&m);
     std::cout << "parent: end" << std::endl;
+    CloseHandle(child_thread);
     return EXIT_SUCCESS;
 }

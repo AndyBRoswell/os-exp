@@ -83,5 +83,8 @@ int main(int argc, char* argv[]) {
     }
     WaitForSingleObject(producer_thread, INFINITE);
     for (size_t i = 0; i < consumers; ++i) { WaitForSingleObject(consumer_thread[i], INFINITE); }
+    
+    CloseHandle(producer_thread);
+    for (size_t i = 0; i < consumers; ++i) { CloseHandle(consumer_thread[i]); }
     return EXIT_SUCCESS;
 }

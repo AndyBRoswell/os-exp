@@ -28,5 +28,6 @@ int main(int argc, char* argv[]) {
     }
     WaitForSingleObject(hThread, INFINITE);
     std::cout<<std::format("returned {} {}\n", dat->ret.x, dat->ret.y);
+    CloseHandle(hThread);
     return EXIT_SUCCESS;
 }

@@ -19,4 +19,6 @@ int main(int argc, char* argv[]) {
     const HANDLE const child_thread = CreateThread(nullptr, 0, child, nullptr, 0, nullptr);
     synchronizer.wait();
     std::cout << "parent: end" << std::endl;
+    CloseHandle(child_thread);
+    return EXIT_SUCCESS;
 }

@@ -29,5 +29,6 @@ int main(int argc, char* argv[]) {
     SleepConditionVariableCS(&c, &m, INFINITE);
     LeaveCriticalSection(&m);
     std::cout << "parent: end" << std::endl;
+    CloseHandle(child_thread);
     return EXIT_SUCCESS;
 }
