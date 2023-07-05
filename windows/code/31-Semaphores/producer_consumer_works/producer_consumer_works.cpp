@@ -17,9 +17,9 @@ Vty* buffer;
 size_t use = 0;
 size_t fill = 0;
 
-HANDLE const empty = CreateSemaphore(nullptr, maximum, LONG_MAX, nullptr);
-HANDLE const full = CreateSemaphore(nullptr, 0, LONG_MAX, nullptr);
-HANDLE const mutex = CreateSemaphore(nullptr, 1, LONG_MAX, nullptr);
+HANDLE const empty = CreateSemaphore(nullptr, maximum, LONG_MAX, nullptr);  // maximum are empty
+HANDLE const full = CreateSemaphore(nullptr, 0, LONG_MAX, nullptr);         // 0 are full
+HANDLE const mutex = CreateSemaphore(nullptr, 1, LONG_MAX, nullptr);        // mutex
 
 void do_fill(Vty value) {
     buffer[fill] = value;
@@ -86,5 +86,9 @@ int main(int argc, char* argv[]) {
     for (size_t i = 0; i < consumers; ++i) { WaitForSingleObject(c[i], INFINITE); }
     CloseHandle(p);
     for (size_t i = 0; i < consumers; ++i) { CloseHandle(c[i]); }
+    CloseHandle(empty);
+    CloseHandle(full);
+    CloseHandle(mutex);
+    delete[] buffer;
     return EXIT_SUCCESS;
 }
