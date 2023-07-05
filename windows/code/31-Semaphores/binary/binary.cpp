@@ -20,9 +20,14 @@ DWORD WINAPI child(const LPVOID const arg) {
 
 int main(int argc, char* argv[]) {
     HANDLE thread[thread_count];
-    for (size_t i = 0; i < thread_count; ++i) { thread[i] = CreateThread(nullptr, 0, child, nullptr, 0, nullptr); }
+    for (size_t i = 0; i < thread_count; ++i) { 
+        thread[i] = CreateThread(nullptr, 0, child, nullptr, 0, nullptr);
+        if (thread[i] == nullptr) { std::cerr << "CreateThread failed" << std::endl; return EXIT_FAILURE; }
+    }
     WaitForMultipleObjects(thread_count, thread, TRUE, INFINITE);
     //std::cout << std::format("result: {} (should be {})", counter, increment_count * thread_count) << std::endl;
     std::cout << "result: " << counter << " (should be " << increment_count * thread_count << ")" << std::endl;
+    for (size_t i = 0; i < thread_count; ++i) { CloseHandle(thread[i]); }
+    CloseHandle(mutex);
     return EXIT_SUCCESS;
 }
