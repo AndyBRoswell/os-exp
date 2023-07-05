@@ -9,7 +9,7 @@ size_t counter = 0;
 
 reader_writer_lock mutex;
 
-DWORD WINAPI reader(const LPVOID const arg) {
+DWORD WINAPI reader(const LPVOID arg) {
     size_t local;
     for (size_t i = 0; i < read_loops; ++i) {
         mutex.acquire_read_lock();
@@ -21,7 +21,7 @@ DWORD WINAPI reader(const LPVOID const arg) {
     return EXIT_SUCCESS;
 }
 
-DWORD WINAPI writer(const LPVOID const arg) {
+DWORD WINAPI writer(const LPVOID arg) {
     for (size_t i = 0; i < write_loops; ++i) {
         mutex.acquire_write_lock();
         ++counter;
@@ -39,9 +39,9 @@ int main(int argc, char* argv[]) {
     read_loops = atoi(argv[1]);
     write_loops = atoi(argv[2]);
 
-    const HANDLE const c1 = CreateThread(nullptr, 0, reader, nullptr, 0, nullptr);
+    const HANDLE c1 = CreateThread(nullptr, 0, reader, nullptr, 0, nullptr);
     if (c1 == nullptr) { return EXIT_FAILURE; }
-    const HANDLE const c2 = CreateThread(nullptr, 0, writer, nullptr, 0, nullptr);
+    const HANDLE c2 = CreateThread(nullptr, 0, writer, nullptr, 0, nullptr);
     if (c2 == nullptr) { return EXIT_FAILURE; }
     WaitForSingleObject(c1, INFINITE);
     WaitForSingleObject(c2, INFINITE);

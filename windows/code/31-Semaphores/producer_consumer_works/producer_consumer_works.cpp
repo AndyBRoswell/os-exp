@@ -32,7 +32,7 @@ Vty do_get() {
     return tmp;
 }
 
-DWORD WINAPI producer(const LPVOID const arg) {
+DWORD WINAPI producer(const LPVOID arg) {
     for (size_t i = 0; i < loops; ++i) {
         WaitForSingleObject(empty, INFINITE);
         WaitForSingleObject(mutex, INFINITE);
@@ -50,7 +50,7 @@ DWORD WINAPI producer(const LPVOID const arg) {
     return EXIT_SUCCESS;
 }
 
-DWORD WINAPI consumer(const LPVOID const arg) {
+DWORD WINAPI consumer(const LPVOID arg) {
     Vty tmp = 0;
     while (tmp != end_marker) {
         WaitForSingleObject(full, INFINITE);

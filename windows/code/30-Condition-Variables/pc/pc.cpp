@@ -75,7 +75,7 @@ int main(int argc, char* argv[]) {
 
     buffer = new Vty[maximum]();
 
-    const HANDLE const producer_thread = CreateThread(nullptr, 0, producer, nullptr, 0, nullptr);
+    const HANDLE producer_thread = CreateThread(nullptr, 0, producer, nullptr, 0, nullptr);
     if (producer_thread == nullptr) { return EXIT_FAILURE; }
     std::vector<HANDLE> consumer_thread(consumers);
     for (size_t i = 0; i < consumers; ++i) {

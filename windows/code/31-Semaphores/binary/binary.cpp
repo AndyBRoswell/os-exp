@@ -9,7 +9,7 @@ constexpr size_t increment_count = 1e7;
 HANDLE const mutex = CreateSemaphore(nullptr, 1, LONG_MAX, nullptr);
 volatile size_t counter = 0;
 
-DWORD WINAPI child(const LPVOID const arg) {
+DWORD WINAPI child(const LPVOID arg) {
     for (size_t i = 0; i < increment_count; ++i) {
         WaitForSingleObject(mutex, INFINITE);
         ++counter;
